@@ -57,4 +57,6 @@ export const useMutateTag = () => {
       },
     }
   )
+
+  return { createTagMutation, updateTagMutation, deleteTagMutation }
 }
