@@ -54,7 +54,7 @@ export const useMutateTask = () => {
       onSuccess: (res, variables) => {
         const previousTodos = queryClient.getQueryData<Task[]>(['tasks'])
         if (previousTodos) {
-          queryClient.setQueriesData<Task[]>(
+          queryClient.setQueryData<Task[]>(
             ['tasks'],
             previousTodos.filter((task) => task.id !== variables)
           )
