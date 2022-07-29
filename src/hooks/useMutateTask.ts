@@ -4,7 +4,7 @@ import { resetEditedTask } from '../slices/todoSlice'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { Task, EditTask } from '../types/types'
 
-export const useMutate = () => {
+export const useMutateTask = () => {
   const dispatch = useAppDispatch()
   const queryClient = useQueryClient()
 
@@ -46,4 +46,23 @@ export const useMutate = () => {
       },
     }
   )
+
+  const deleteTaskMutation = useMutation(
+    (id: number) =>
+      axios.delete(`${process.env.REACT_APP_REST_URL}/tasks/${id}/`),
+    {
+      onSuccess: (res, variables) => {
+        const previousTodos = queryClient.getQueryData<Task[]>(['tasks'])
+        if (previousTodos) {
+          queryClient.setQueriesData<Task[]>(
+            ['tasks'],
+            previousTodos.filter((task) => task.id !== variables)
+          )
+        }
+        dispatch(resetEditedTask())
+      },
+    }
+  )
+
+  return { createTaskMutation, updateTaskMutation, deleteTaskMutation }
 }
