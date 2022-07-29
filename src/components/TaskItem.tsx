@@ -9,7 +9,7 @@ interface Props {
   task: Task
 }
 
-const TaskItem: React.FC<Props> = ({ task }) => {
+export const TaskItem: React.FC<Props> = ({ task }) => {
   const dispatch = useAppDispatch()
   const { deleteTaskMutation } = useMutateTask()
   console.log('rendered TaskItem')
