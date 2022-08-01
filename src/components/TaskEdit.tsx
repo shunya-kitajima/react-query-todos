@@ -45,7 +45,7 @@ const TaskEdit: React.FC = () => {
           value={editedTask.title}
         />
         <button
-          className="disabled:pacity-40 my-3 mx-3 py-2 px-3 text-white bg-indig-600 hover:bg-indig-700 rouded"
+          className="disabled:opacity-40 my-3 mx-3 py-2 px-3 text-white bg-indig-600 hover:bg-indig-700 rouded"
           disabled={!editedTask.title || !editedTask.tag}
         >
           {editedTask.id === 0 ? 'Create' : 'Update'}
