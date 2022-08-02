@@ -15,7 +15,7 @@ export const useMutateTag = () => {
       onSuccess: (res) => {
         const previousTags = queryClient.getQueryData<Tag[]>(['tags'])
         if (previousTags) {
-          queryClient.setQueryData<Tag[]>(['tag'], [...previousTags, res.data])
+          queryClient.setQueryData<Tag[]>(['tags'], [...previousTags, res.data])
         }
         dispatch(resetEditedTag())
       },
