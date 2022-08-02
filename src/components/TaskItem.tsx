@@ -50,4 +50,4 @@ const TaskItem: React.FC<Props> = ({ task }) => {
   )
 }
 
-export default TaskItem
+export const TaskItemMemo = memo(TaskItem)

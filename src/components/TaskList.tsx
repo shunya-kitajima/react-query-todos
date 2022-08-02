@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { useQueryTasks } from '../hooks/useQueryTasks'
-import TaskItem from './TaskItem'
+import { TaskItemMemo } from './TaskItem'
 
 const TaskList: React.FC = () => {
   const { status, data } = useQueryTasks()
@@ -14,7 +14,7 @@ const TaskList: React.FC = () => {
       {data?.map((task) => (
         <div key={task.id}>
           <ul>
-            <TaskItem task={task} />
+            <TaskItemMemo task={task} />
           </ul>
         </div>
       ))}
@@ -22,4 +22,4 @@ const TaskList: React.FC = () => {
   )
 }
 
-export default TaskList
+export const TaskListMemo = memo(TaskList)
