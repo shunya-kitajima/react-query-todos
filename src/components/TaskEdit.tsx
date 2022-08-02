@@ -45,24 +45,24 @@ const TaskEdit: React.FC = () => {
           value={editedTask.title}
         />
         <button
-          className="disabled:opacity-40 my-3 mx-3 py-2 px-3 text-white bg-indig-600 hover:bg-indig-700 rouded"
+          className="disabled:opacity-40 my-3 mx-3 py-2 px-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded"
           disabled={!editedTask.title || !editedTask.tag}
         >
           {editedTask.id === 0 ? 'Create' : 'Update'}
         </button>
-        <select
-          className="mb-3 px-3 py-2 border border-gray-300"
-          value={editedTask.tag}
-          onChange={(e) =>
-            dispatch(
-              setEditedTask({ ...editedTask, tag: Number(e.target.value) })
-            )
-          }
-        >
-          <option value={0}>Tag</option>
-          {tagOptions}
-        </select>
       </form>
+      <select
+        className="mb-3 px-3 py-2 border border-gray-300"
+        value={editedTask.tag}
+        onChange={(e) =>
+          dispatch(
+            setEditedTask({ ...editedTask, tag: Number(e.target.value) })
+          )
+        }
+      >
+        <option value={0}>Tag</option>
+        {tagOptions}
+      </select>
     </div>
   )
 }
