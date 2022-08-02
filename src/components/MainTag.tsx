@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
 
 const MainTag: React.FC = () => {
-  const navigate = useNavigate()
-
-  return
-  ;<div>MainTag</div>
+  return <div></div>
 }
 
 export default MainTag
